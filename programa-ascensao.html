@@ -46,19 +46,37 @@
     box-sizing: border-box;
   }
 
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
   html {
     scroll-behavior: smooth;
     color-scheme: dark;
   }
 
   body {
+    position: relative;
     background: var(--bg);
     color: var(--paper);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 300;
     line-height: 1.65;
-    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+  }
+
+  img, svg, video, canvas, iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
+  section, main, header, footer, nav {
+    max-width: 100%;
+    overflow-x: clip;
   }
 
   h1, h2, h3, .heading-font {
@@ -978,7 +996,7 @@
   .about-grid {
     margin-top: 64px;
     display: grid;
-    grid-template-columns: 380px 1fr;
+    grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
     gap: 64px;
     align-items: center;
     position: relative;
@@ -1130,6 +1148,32 @@
   }
 
   @media (max-width: 768px) {
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      overscroll-behavior-x: none;
+      touch-action: pan-y;
+    }
+
+    main, section, .wrap, .hero-container, .entregas-container {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: clip;
+    }
+
+    .reveal,
+    .reveal-left,
+    .reveal-right {
+      transform: translateY(24px) !important;
+    }
+
+    .reveal.is-visible,
+    .reveal-left.is-visible,
+    .reveal-right.is-visible {
+      transform: translateY(0) !important;
+    }
+
     .wrap {
       padding: 0 20px;
     }
