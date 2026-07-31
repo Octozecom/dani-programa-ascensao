@@ -6,3 +6,8 @@ deployment:
     - /bin/cp programa-ascensao.html $DEPLOYPATH
     - /bin/cp bgdani.webp $DEPLOYPATH
     - /bin/cp .htaccess $DEPLOYPATH
+    - /bin/cp *.png $DEPLOYPATH
+    - /bin/cp *.jpg $DEPLOYPATH
+    - /bin/cp *.jpeg $DEPLOYPATH
+    - /bin/cp *.webp $DEPLOYPATH
+
