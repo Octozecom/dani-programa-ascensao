@@ -1567,6 +1567,57 @@
       display: none;
     }
   }
+
+  /* ==================================================
+     WHATSAPP FLOAT BUTTON
+     ================================================== */
+  .whatsapp-float {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 56px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #25D366;
+    color: #fff;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+    z-index: 9999;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    text-decoration: none;
+  }
+
+  .whatsapp-float:hover {
+    transform: translateY(-3px) scale(1.03);
+    background: #20bd5a;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.34);
+  }
+
+  .whatsapp-float:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.9);
+    outline-offset: 3px;
+  }
+
+  .whatsapp-float svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+  }
+
+  @media (max-width: 767px) {
+    .whatsapp-float {
+      right: 16px;
+      bottom: calc(16px + env(safe-area-inset-bottom));
+      width: 50px;
+      height: 50px;
+    }
+
+    .whatsapp-float svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -1626,7 +1677,7 @@
         </div>
 
         <div>
-          <a href="#investimento" class="cta-btn">
+          <a href="https://chk.eduzz.com/VWGNV4QR07" target="_blank" rel="noopener noreferrer" class="cta-btn">
             <span>Garantir minha vaga</span>
             <span class="btn-icon">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
@@ -2089,7 +2140,7 @@
             <div class="price-inst-val">ou 12x de R$ 297,00</div>
           </div>
 
-          <a href="#" class="cta-btn" style="width: 100%; margin-top: 12px;">
+          <a href="https://chk.eduzz.com/VWGNV4QR07" target="_blank" rel="noopener noreferrer" class="cta-btn" style="width: 100%; margin-top: 12px;">
             <span>Quero garantir minha vaga</span>
             <span class="btn-icon">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
@@ -2266,7 +2317,7 @@
         <span class="text-strong text-accent">É uma transformação guiada.</span>
       </h2>
       <p>Desafios práticos, entregas semanais e evolução constante — durante 10 semanas, até você se tornar a autoridade que já é por dentro.</p>
-      <a href="#investimento" class="cta-btn">
+      <a href="https://chk.eduzz.com/VWGNV4QR07" target="_blank" rel="noopener noreferrer" class="cta-btn">
         <span>Garantir minha vaga</span>
         <span class="btn-icon">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
@@ -2296,5 +2347,17 @@
   });
 </script>
 
+  <!-- BOTÃO FLUTUANTE DE WHATSAPP -->
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/5511922073442?text=Oi%20Dani%2C%20vim%20da%20p%C3%A1gina%20e%20tenho%20uma%20d%C3%BAvida."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Falar com Dani pelo WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor">
+      <path d="M16 2A13.84 13.84 0 0 0 4.09 22.84L2 30l7.32-1.92A13.8 13.8 0 1 0 16 2zm0 25.3a11.45 11.45 0 0 1-5.84-1.59l-.42-.25-4.34 1.14 1.16-4.23-.27-.44A11.51 11.51 0 1 1 16 27.3zm6.3-8.62c-.35-.17-2.04-1-2.36-1.12s-.55-.17-.78.17-.9 1.12-1.1 1.35-.4.26-.74.09a9.37 9.37 0 0 1-2.76-1.7 10.33 10.33 0 0 1-1.91-2.38c-.2-.35-.02-.54.15-.71s.35-.4.52-.6.23-.35.35-.58.06-.43-.03-.6-.78-1.87-1.07-2.56c-.28-.68-.57-.58-.78-.59h-.67a1.29 1.29 0 0 0-.93.43 3.92 3.92 0 0 0-1.22 2.92 6.83 6.83 0 0 0 1.43 3.62 15.69 15.69 0 0 0 6 5.3 19.8 19.8 0 0 0 2 .74 4.8 4.8 0 0 0 2.2.14 3.6 3.6 0 0 0 2.36-1.66 2.94 2.94 0 0 0 .2-1.66c-.07-.12-.27-.23-.62-.4z"/>
+    </svg>
+  </a>
 </body>
 </html>
