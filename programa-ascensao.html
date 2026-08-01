@@ -1169,8 +1169,11 @@
     }
 
     .reveal.is-visible,
+    .reveal.in,
     .reveal-left.is-visible,
-    .reveal-right.is-visible {
+    .reveal-left.in,
+    .reveal-right.is-visible,
+    .reveal-right.in {
       transform: translateY(0) !important;
     }
 
@@ -1275,6 +1278,253 @@
     fill: currentColor;
   }
 
+  /* ==================================================
+     ESTA MENTORIA É PARA VOCÊ (.for-you-section)
+     ================================================== */
+  .for-you-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .for-you-card {
+    background: var(--bg-card);
+    border-radius: 24px;
+    padding: 40px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .for-you-card-blue {
+    border-color: rgba(47, 190, 239, 0.3);
+  }
+
+  .for-you-card-blue:hover {
+    border-color: var(--cyan-bright);
+    box-shadow: 0 20px 50px rgba(47, 190, 239, 0.15);
+    transform: translateY(-4px);
+  }
+
+  .for-you-card-red {
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+
+  .for-you-card-red:hover {
+    border-color: rgba(239, 68, 68, 0.6);
+    box-shadow: 0 20px 50px rgba(239, 68, 68, 0.15);
+    transform: translateY(-4px);
+  }
+
+  .for-you-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    line-height: 1.3;
+  }
+
+  .for-you-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .for-you-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .for-you-bullet-blue {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--cyan-bright);
+    box-shadow: 0 0 10px var(--cyan-bright);
+    margin-top: 10px;
+    flex-shrink: 0;
+  }
+
+  .for-you-bullet-red {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #EF4444;
+    box-shadow: 0 0 10px #EF4444;
+    margin-top: 10px;
+    flex-shrink: 0;
+  }
+
+  .for-you-item-text {
+    font-size: 16px;
+    color: var(--paper);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  .for-you-item-sub {
+    display: block;
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 300;
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  /* ==================================================
+     FAQ SECTION (.faq-section)
+     ================================================== */
+  .faq-header {
+    margin-bottom: 48px;
+  }
+
+  .faq-accordion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    overflow: hidden;
+    transition: var(--transition);
+  }
+
+  .faq-item:hover {
+    border-color: var(--cyan-line);
+    background: var(--bg-card-hover);
+  }
+
+  .faq-item.active {
+    border-color: var(--cyan-line);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    background: var(--bg-card-hover);
+  }
+
+  .faq-trigger {
+    width: 100%;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+    border: none;
+    color: var(--paper);
+    font-family: var(--font-primary);
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    gap: 20px;
+    transition: color 0.25s ease;
+  }
+
+  .faq-trigger:hover {
+    color: var(--cyan-bright);
+  }
+
+  .faq-icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(243, 246, 250, 0.05);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s ease, border-color 0.35s ease;
+  }
+
+  .faq-item.active .faq-icon-box {
+    transform: rotate(45deg);
+    background: var(--cyan-glow);
+    border-color: var(--cyan-bright);
+    color: var(--cyan-bright);
+  }
+
+  .faq-icon {
+    transition: transform 0.35s ease;
+  }
+
+  .faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    opacity: 0;
+  }
+
+  .faq-item.active .faq-content {
+    max-height: 400px;
+    opacity: 1;
+  }
+
+  .faq-body {
+    padding: 0 32px 28px 32px;
+    font-size: 15px;
+    color: var(--paper-muted);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 1023px) {
+    .for-you-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .for-you-card {
+      padding: 28px 20px;
+      border-radius: 20px;
+    }
+    .for-you-title {
+      font-size: 20px;
+      margin-bottom: 24px;
+    }
+    .for-you-list {
+      gap: 20px;
+    }
+    .for-you-item-text {
+      font-size: 15px;
+    }
+    .for-you-item-sub {
+      font-size: 13px;
+    }
+
+    .faq-trigger {
+      padding: 20px;
+      font-size: 16px;
+    }
+    .faq-body {
+      padding: 0 20px 20px 20px;
+      font-size: 14px;
+    }
+    .faq-icon-box {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
   @media (max-width: 767px) {
     .whatsapp-float {
       right: 16px;
@@ -1329,7 +1579,7 @@
           <div class="hero-meta-item"><span class="mono">Duração</span>10 encontros ao vivo</div>
         </div>
 
-        <a href="https://chk.eduzz.com/VWGNV4QR07" target="_blank" rel="noopener noreferrer" class="cta-primary">Garantir minha vaga →</a>
+        <a href="https://chk.eduzz.com/VWGNV4QR07" target="_blank" rel="noopener noreferrer" class="cta-primary">Garantir vaga com desconto de primeiro lote →</a>
       </div>
 
       <div class="hero-visual-frame reveal">
@@ -1355,7 +1605,7 @@
     </div>
     
     <h2 class="section-intro">P.O.D.E.R. é a estrutura por trás de toda autoridade construída de forma deliberada.</h2>
-    <p class="section-intro-sub">Cinco frentes trabalhadas em conjunto, ao longo das 10 semanas — do pensamento estratégico até a relevância sustentada no mercado.</p>
+    <p class="section-intro-sub">Cinco frentes trabalhadas em conjunto, ao longo das 10 semanas. Do pensamento estratégico até a relevância sustentada no mercado.</p>
 
     <div class="poder-grid">
       <div class="poder-item reveal">
@@ -1376,7 +1626,7 @@
         </div>
         <div class="poder-text">
           <h3>Oratória de Influência</h3>
-          <p>Voz, ritmo e presença a serviço da mensagem — comunicação que sustenta autoridade em qualquer palco.</p>
+          <p>Voz, ritmo e presença a serviço da mensagem. Comunicação que sustenta autoridade em qualquer palco.</p>
         </div>
       </div>
 
@@ -1387,7 +1637,7 @@
         </div>
         <div class="poder-text">
           <h3>Decisão e Posicionamento</h3>
-          <p>Escolhas claras sobre onde ocupar espaço — e coragem para sustentar essas escolhas publicamente.</p>
+          <p>Escolhas claras sobre onde ocupar espaço e coragem para sustentar essas escolhas publicamente.</p>
         </div>
       </div>
 
@@ -1409,9 +1659,104 @@
         </div>
         <div class="poder-text">
           <h3>Relevância no Mercado</h3>
-          <p>Autoridade que se converte em oportunidades reais — palestras, consultorias, contratos e indicações.</p>
+          <p>Autoridade que se converte em oportunidades reais: palestras, consultorias, contratos e indicações.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO ESTA MENTORIA É PARA VOCÊ (#para-quem) -->
+<section class="for-you-section section-pad" id="para-quem">
+  <div class="bg-grid"></div>
+  <div class="glow-orb cyan"></div>
+  
+  <div class="wrap">
+    <div class="for-you-grid">
+      
+      <!-- CARD AZUL -->
+      <div class="for-you-card for-you-card-blue reveal">
+        <div>
+          <h3 class="for-you-title" style="color: var(--paper);">
+            <span style="font-size: 20px;">🟢</span> Esta Mentoria É Para Você Que...
+          </h3>
+          <ul class="for-you-list">
+            <li class="for-you-item">
+              <span class="for-you-bullet-blue"></span>
+              <div class="for-you-item-text">
+                Já possui conhecimento e bagagem no offline, mas ainda não construiu sua autoridade no digital.
+                <span class="for-you-item-sub">É especialista, médica, mentora, executiva ou profissional liberal e sente que sua presença digital ainda não representa a qualidade do seu trabalho.</span>
+              </div>
+            </li>
+            <li class="for-you-item">
+              <span class="for-you-bullet-blue"></span>
+              <div class="for-you-item-text">
+                É empresário ou dono de negócio físico e quer transformar sua imagem pessoal em uma autoridade que gera negócios.
+              </div>
+            </li>
+            <li class="for-you-item">
+              <span class="for-you-bullet-blue"></span>
+              <div class="for-you-item-text">
+                Deseja usar sua imagem, sua voz e seu posicionamento para atrair clientes, vender serviços premium e fortalecer sua empresa.
+              </div>
+            </li>
+            <li class="for-you-item">
+              <span class="for-you-bullet-blue"></span>
+              <div class="for-you-item-text">
+                Quer cobrar mais caro e atrair clientes de alto valor.
+                <span class="for-you-item-sub">Deseja construir um posicionamento sofisticado, vendendo de forma elegante, sem parecer apelativo.</span>
+              </div>
+            </li>
+            <li class="for-you-item">
+              <span class="for-you-bullet-blue"></span>
+              <div class="for-you-item-text">
+                Busca dominar a comunicação.
+                <span class="for-you-item-sub">Quer gravar vídeos, dar palestras, participar de reuniões e entrevistas com segurança, presença e clareza.</span>
+              </div>
+            </li>
+            <li class="for-you-item">
+              <span class="for-you-bullet-blue"></span>
+              <div class="for-you-item-text">
+                Quer um plano estruturado para monetizar rapidamente.
+                <span class="for-you-item-sub">Deseja terminar a mentoria com seu Manifesto de Posicionamento, Plano de Conteúdo e Plano de Crescimento de 90 Dias prontos.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CARD VERMELHO -->
+      <div class="for-you-card for-you-card-red reveal">
+        <div>
+          <h3 class="for-you-title" style="color: var(--paper);">
+            <span style="font-size: 20px;">🔴</span> Esta Mentoria NÃO É Para Você Que...
+          </h3>
+          <ul class="for-you-list">
+            <li class="for-you-item">
+              <span class="for-you-bullet-red"></span>
+              <div class="for-you-item-text">
+                Procura fórmulas mágicas de enriquecimento rápido.
+                <span class="for-you-item-sub">O Programa Ascensão exige dedicação, prática e construção consistente de autoridade.</span>
+              </div>
+            </li>
+            <li class="for-you-item">
+              <span class="for-you-bullet-red"></span>
+              <div class="for-you-item-text">
+                Quer virar blogueira ou seguir trends e dancinhas.
+                <span class="for-you-item-sub">Nosso foco é posicionamento premium, autoridade e vendas estratégicas.</span>
+              </div>
+            </li>
+            <li class="for-you-item">
+              <span class="for-you-bullet-red"></span>
+              <div class="for-you-item-text">
+                Ainda não possui profissão, serviço ou produto para oferecer.
+                <span class="for-you-item-sub">A mentoria acelera quem já possui conhecimento e deseja escalar sua autoridade.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1426,7 +1771,7 @@
     </div>
     
     <h2 class="section-intro">10 encontros, cada um um degrau na sua ascensão.</h2>
-    <p class="section-intro-sub">Ao vivo, em grupo fechado, com exercícios semanais e entregas práticas — não é aula, é construção guiada.</p>
+    <p class="section-intro-sub">Ao vivo, em grupo fechado, com exercícios semanais e entregas práticas. Não é aula. É construção guiada.</p>
 
     <div class="staircase-wrapper">
       <div class="staircase-timeline-line"></div>
@@ -1726,7 +2071,7 @@
     </div>
 
     <div class="pricing-action">
-      <a href="https://chk.eduzz.com/VWGNV4QR07" target="_blank" rel="noopener noreferrer" class="cta-primary">Quero garantir minha vaga →</a>
+      <a href="https://chk.eduzz.com/VWGNV4QR07" target="_blank" rel="noopener noreferrer" class="cta-primary">Garantir vaga com desconto de primeiro lote →</a>
     </div>
   </div>
 </section>
@@ -1859,13 +2204,180 @@
 <!-- CLOSING -->
 <section class="closing">
   <div class="bg-grid"></div>
-  <div class="glow-orb cyan"></div>
-  <div class="glow-orb amber"></div>
+  <div class="glow-orb"></div>
   
+  <div class="wrap reveal">
+    <h2>Sua hora de <span class="grad-text">ascender.</span></h2>
+    <p>Desafios práticos, entregas semanais e evolução constante durante 10 semanas, até você se tornar a autoridade que já é por dentro.</p>
+    
+    <a href="https://chk.eduzz.com/VWGNV4QR07" target="_blank" rel="noopener noreferrer" class="cta-primary">Garantir vaga com desconto de primeiro lote →</a>
+  </div>
+</section>
+
+<!-- SEÇÃO DE PERGUNTAS FREQUENTES (#faq) -->
+<section class="faq-section section-pad" id="faq">
+  <div class="bg-grid"></div>
+  <div class="glow-orb cyan"></div>
   <div class="wrap">
-    <h2>Não é aula. <span class="grad-text">É uma transformação guiada.</span></h2>
-    <p>Desafios práticos, entregas semanais e evolução constante — durante 10 semanas, até você se tornar a autoridade que já é por dentro.</p>
-    <a href="https://chk.eduzz.com/VWGNV4QR07" target="_blank" rel="noopener noreferrer" class="cta-primary">Garantir minha vaga →</a>
+    <div class="label-row">
+      <span class="mono" style="color: var(--amber-bright);">07 — Dúvidas</span>
+      <span class="rule"></span>
+    </div>
+
+    <div class="faq-header">
+      <h2 class="section-intro" style="font-size: clamp(2.4rem, 3.8vw, 4rem);">
+        Perguntas <span class="grad-text">Frequentes</span>
+      </h2>
+      <p class="section-intro-sub">As respostas para as dúvidas mais comuns sobre o Programa Ascensão.</p>
+    </div>
+
+    <div class="faq-accordion-container reveal">
+      
+      <!-- Item 1 -->
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-question">Para quem é o Programa Ascensão?</span>
+          <span class="faq-icon-box" aria-hidden="true">
+            <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-content">
+          <div class="faq-body">
+            O programa é ideal para especialistas, médicas, mentoras, executivas, profissionais liberais e empresários que possuem conhecimento no offline e desejam construir autoridade relevante e elegante no digital.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-question">Como funcionam os 10 encontros ao vivo?</span>
+          <span class="faq-icon-box" aria-hidden="true">
+            <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-content">
+          <div class="faq-body">
+            Os encontros acontecem semanalmente pelo Zoom (das 19h30 às 21h30). Cada sessão combina estratégia, exercícios práticos e feedbacks individuais.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-question">Qual é a data de início da próxima turma?</span>
+          <span class="faq-icon-box" aria-hidden="true">
+            <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-content">
+          <div class="faq-body">
+            As aulas ao vivo iniciam em 11 de agosto. As orientações de acesso são enviadas por e-mail logo após a confirmação da sua inscrição.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-question">E se eu não puder assistir a um encontro ao vivo?</span>
+          <span class="faq-icon-box" aria-hidden="true">
+            <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-content">
+          <div class="faq-body">
+            Todas as sessões são gravadas em HD e disponibilizadas na área de membros em até 24 horas, com acesso garantido por 1 ano.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-question">Preciso já ter experiência em gravar vídeos ou produzir conteúdo?</span>
+          <span class="faq-icon-box" aria-hidden="true">
+            <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-content">
+          <div class="faq-body">
+            Não. O Método P.O.D.E.R. orienta você desde o posicionamento inicial, postura e oratória até a execução de conteúdos de alta autoridade.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-question">O que está incluído no programa?</span>
+          <span class="faq-icon-box" aria-hidden="true">
+            <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-content">
+          <div class="faq-body">
+            10 encontros ao vivo, grupo fechado para networking, exercícios semanais, templates, checklists, Manifesto de Posicionamento, Plano de Conteúdo e Plano de Crescimento de 90 Dias.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 7 -->
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-question">Como funciona a condição especial de 1º Lote?</span>
+          <span class="faq-icon-box" aria-hidden="true">
+            <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-content">
+          <div class="faq-body">
+            No 1º Lote, o investimento é de R$ 1.997,00 à vista (ou 12x de R$ 197,00). As vagas são estritamente limitadas para garantir suporte individualizado.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 8 -->
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-question">Como faço para garantir minha vaga agora?</span>
+          <span class="faq-icon-box" aria-hidden="true">
+            <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-content">
+          <div class="faq-body">
+            Clique em qualquer botão de inscrição nesta página para ser direcionado ao checkout seguro da Eduzz e garantir o valor promocional de 1º lote.
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -1886,6 +2398,30 @@
     }, { threshold: 0.12 });
     
     items.forEach(i => io.observe(i));
+
+    // Accordion Premium (apenas um aberto por vez)
+    const faqTriggers = document.querySelectorAll('.faq-trigger');
+    faqTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.closest('.faq-item');
+        const isOpen = item.classList.contains('active');
+        
+        document.querySelectorAll('.faq-item.active').forEach(openItem => {
+          if (openItem !== item) {
+            openItem.classList.remove('active');
+            openItem.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+          }
+        });
+        
+        if (isOpen) {
+          item.classList.remove('active');
+          trigger.setAttribute('aria-expanded', 'false');
+        } else {
+          item.classList.add('active');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
   });
 </script>
 
