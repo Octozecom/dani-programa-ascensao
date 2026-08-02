@@ -292,13 +292,14 @@
      ================================================== */
   .hero {
     position: relative;
-    min-height: 860px;
-    height: min(100vh, 920px);
+    min-height: 980px;
+    height: min(100vh, 1050px);
     background: #03070C;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    padding-top: 100px;
     padding-bottom: 40px;
   }
 
@@ -361,27 +362,7 @@
   }
 
   .hero-tech-controls {
-    position: absolute;
-    right: 32px;
-    top: -90px;
-    display: flex;
-    z-index: 5;
-  }
-
-  .tech-control-btn {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    background: #06070C;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-  }
-
-  .tech-control-btn.overlap {
-    margin-left: -10px;
+    display: none !important;
   }
 
   .eyebrow-badge {
@@ -1673,12 +1654,7 @@
     }
 
     .hero-tech-controls {
-      position: absolute;
-      right: 16px;
-      left: auto;
-      top: -36px;
-      max-width: calc(100% - 32px);
-      z-index: 5;
+      display: none !important;
     }
 
     .eyebrow-badge {
@@ -1891,15 +1867,7 @@
   <div class="hero-vignette-overlay"></div>
   
   <div class="hero-container">
-    <!-- Technical Control Buttons -->
-    <div class="hero-tech-controls" aria-hidden="true">
-      <div class="tech-control-btn">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2FBEEF" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-      </div>
-      <div class="tech-control-btn overlap">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2FBEEF" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </div>
-    </div>
+
 
     <!-- Main Content -->
     <div class="hero-main-content">
